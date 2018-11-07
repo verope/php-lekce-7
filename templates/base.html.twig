@@ -1,12 +1,39 @@
+{# templates/base.html.twig #}
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('lekce-1/css/*') }}">
+        {% endblock %}
+        
+
+        
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li><a href="/php-lekce-7/public/product/stats">Vypis produktu</a></li>
+                    <li><a href="/php-lekce-7/public/purchase/order/">Vypis objednavek</a></li>
+                    <li><a href="/php-lekce-7/public/product/new">Pridani produktu</a></li>
+                    <li><a href="/php-lekce-7/public/purchase/order/new">Pridani objednavky</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+        <li{% if app.request.attributes.get('_route') in [
+            '/php-lekce-7/public/product/stats',
+            '/php-lekce-7/public/purchase/order/',
+            '/php-lekce-7/public/product/new',
+            '/php-lekce-7/public/purchase/order/new'
+        ] %} <class="active">{% endif %}>
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
+

@@ -1,0 +1,18 @@
+{#{{ day.today }}
+<br>
+{{ product.id }}
+<br>
+{{ day.today|upper|lower }}
+
+{{ today|date("m/d/Y")}}
+#}
+{% if product.id == 22 %}
+ANO
+{% endif %}
+
+
+{% for day in days %}
+    {{ day }}
+{% else %}
+    nejsou zadne dny
+{% endfor %}
