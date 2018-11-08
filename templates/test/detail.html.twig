@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail!{% endblock %}
+
+{% block body %}
+
+{% for language in programmingLanguages %}
+
+
+<p>Programovaci jazyk: 
+{{ language.testString }}
+</p>
+<p>Umim:
+
+{% if language.testBoolean %}
+
+ANO
+
+{% else %}
+
+NE
+</p>
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

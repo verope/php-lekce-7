@@ -47,10 +47,7 @@ class ProductController extends AbstractController
         return $this->render('/product/stats.html.twig', $stats);
 
     }
-        
-       
-       
-       
+         
        
     /**
      * @Route("/new", name="product_new", methods="GET|POST")

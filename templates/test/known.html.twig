@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Known Languages{% endblock %}
+
+
+{% block body %}
+
+{% for language in programmingLanguages %}
+
+{{ language.testString }}
+
+{% endfor %}
+
+
+{% endblock %}
