@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book by century index{% endblock %}
+
+{% block body %}
+    <h1>Books published until 1900</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pages</th>
+                <th>Author</th>
+                <th>PublishedYear</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books_19 %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.pages }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publishedYear }}</td>
+                <td>{{ book.price }}</td>
+                <td>
+                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+<h1>Books published in years 1901-2000</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pages</th>
+                <th>Author</th>
+                <th>PublishedYear</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books_20 %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.pages }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publishedYear }}</td>
+                <td>{{ book.price }}</td>
+                <td>
+                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<h1>Books published after 2001</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pages</th>
+                <th>Author</th>
+                <th>PublishedYear</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books_21 %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.pages }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publishedYear }}</td>
+                <td>{{ book.price }}</td>
+                <td>
+                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('book_new') }}">Create new</a>
+    
+    <hr>
+    <a href="{{ path('book_index') }}">Back to book index</a>
+{% endblock %}
